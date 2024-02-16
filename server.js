@@ -2,8 +2,17 @@ const express = require('express')
 const app = express()
 const port = 3000
 
+// this is my middleware to write html....
+app.set('view engine', 'ejs')
+app.use(express.static('static'))
+// this is my middleware to write html....
+
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  res.render('home')
+})
+
+app.get('/register', (req, res) => {
+  res.send('Registreer acount!')
 })
 
 app.listen(port, () => {
